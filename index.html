@@ -1,312 +1,468 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Betel Saúde | Sua Saúde na Palma da Mão</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-    @keyframes pulse-slow { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.1; } }
-    .float-animation { animation: float 6s ease-in-out infinite; }
-    .glass-effect { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-    .hover-scale { transition: transform .3s ease, box-shadow .3s ease; }
-    .hover-scale:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .scroll-smooth { scroll-behavior: smooth; }
-    .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
-    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
-    .blob { position: absolute; border-radius: 50%; filter: blur(40px); opacity: .3; animation: pulse-slow 8s ease-in-out infinite; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare+ | Sua Saúde na Palma da Mão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.1; }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: pulse-slow 8s ease-in-out infinite;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body class="scroll-smooth">
-  <!-- Background decorativo -->
-  <div class="fixed inset-0 -z-10 overflow-hidden">
-    <div class="blob w-96 h-96 bg-blue-300 -top-48 -left-48"></div>
-    <div class="blob w-96 h-96 bg-cyan-300 top-1/2 -right-48"></div>
-    <div class="blob w-96 h-96 bg-sky-300 -bottom-48 left-1/3"></div>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300" id="navbar">
-    <div class="container mx-auto px-6 py-4">
-      <div class="flex justify-between items-center">
-        <div class="flex items-center space-x-3">
-          <img src="assets/images/logo.png" alt="Betel Saúde" />
-        </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Início</a>
-          <a href="#features" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Recursos</a>
-          <a href="#benefits" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Benefícios</a>
-          <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Depoimentos</a>
-          <a href="#download" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Download</a>
-        </div>
-        <button class="md:hidden text-gray-700" onclick="toggleMenu()" aria-label="Abrir menu">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
+<body class="bg-white">
+    <!-- Background decorativo -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="blob w-96 h-96 bg-blue-300 -top-48 -left-48"></div>
+        <div class="blob w-96 h-96 bg-cyan-300 top-1/2 -right-48"></div>
+        <div class="blob w-96 h-96 bg-sky-300 -bottom-48 left-1/3"></div>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden glass-effect">
-      <div class="px-6 py-4 space-y-3">
-        <a href="#home" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium" onclick="toggleMenu()">Início</a>
-        <a href="#features" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium" onclick="toggleMenu()">Recursos</a>
-        <a href="#benefits" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium" onclick="toggleMenu()">Benefícios</a>
-        <a href="#testimonials" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium" onclick="toggleMenu()">Depoimentos</a>
-        <a href="#download" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium" onclick="toggleMenu()">Download</a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <section id="home" class="min-h-screen flex items-center pt-24">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
-        <div class="lg:w-1/2 animate-on-scroll">
-          <div class="inline-flex items-center bg-blue-50 rounded-full px-4 py-2 mb-6">
-            <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-            <span class="text-sm text-blue-700 font-medium">Novo! Médicos disponíveis</span>
-          </div>
-          <h1 class="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">Sua saúde sempre em <span class="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">primeiro lugar</span></h1>
-          <p class="text-xl text-gray-600 mb-8 leading-relaxed">Conecte-se com os melhores profissionais, agende consultas e monitore sua saúde — tudo em um único aplicativo.</p>
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="#download" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-2xl hover-scale shadow-lg"><i class="fas fa-download mr-2"></i> Baixar Agora</a>
-            <button onclick="playVideo()" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-2xl border-2 border-blue-200 hover:bg-blue-50 transition-colors"><i class="fas fa-play-circle mr-2"></i> Ver Demonstração</button>
-          </div>
-          <div class="flex items-center space-x-8">
-            <div class="flex -space-x-2">
-              <img src="https://i.pravatar.cc/40?img=1" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuário" />
-              <img src="https://i.pravatar.cc/40?img=2" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuário" />
-              <img src="https://i.pravatar.cc/40?img=3" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuário" />
-              <img src="https://i.pravatar.cc/40?img=4" class="w-10 h-10 rounded-full border-2 border-white" alt="Usuário" />
-            </div>
-            <div>
-              <div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-              <p class="text-sm text-gray-600">+50.000 usuários ativos</p>
-            </div>
-          </div>
-        </div>
-        <div class="lg:w-1/2 relative">
-          <div class="relative float-animation">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-3xl transform rotate-6 opacity-20"></div>
-            <img src="assets/images/bg.png" alt="App Mockup" class="relative shadow-2xl mx-auto" />
-            <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl">
-              <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"><i class="fas fa-check text-green-600"></i></div>
-                <div>
-                  <p class="text-sm text-gray-600">Consulta agendada</p>
-                  <p class="font-semibold">Dr. Silva - 14:30</p>
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass-effect shadow-sm" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-heartbeat text-white"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">MediCare+</span>
                 </div>
-              </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Início</a>
+                    <a href="#features" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Recursos</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Benefícios</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Depoimentos</a>
+                    <a href="#download" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Download</a>
+                </div>
+                <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="py-20">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16 animate-on-scroll">
-        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Recursos</span>
-        <h2 class="text-4xl font-bold text-gray-800 mt-2 mb-4">Tudo que você precisa para cuidar da saúde</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Recursos desenvolvidos pensando em você e sua família.</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale animate-on-scroll">
-          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-video text-blue-600 text-xl"></i></div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Teleconsultas</h3>
-          <p class="text-gray-600 mb-4">Consulte especialistas sem sair de casa, com vídeo em alta qualidade.</p>
-          <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">Saiba mais <i class="fas fa-arrow-right ml-2"></i></a>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale animate-on-scroll">
-          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-calendar-check text-blue-600 text-xl"></i></div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Agendamentos</h3>
-          <p class="text-gray-600 mb-4">Agende e gerencie suas consultas de forma simples e rápida.</p>
-          <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">Saiba mais <i class="fas fa-arrow-right ml-2"></i></a>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale animate-on-scroll">
-          <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-pills text-blue-600 text-xl"></i></div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">Lembretes de Medicação</h3>
-          <p class="text-gray-600 mb-4">Receba alertas para nunca mais perder o horário do seu medicamento.</p>
-          <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">Saiba mais <i class="fas fa-arrow-right ml-2"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits -->
-  <section id="benefits" class="py-20 bg-gradient-to-b from-white to-blue-50">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16 animate-on-scroll">
-        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Benefícios</span>
-        <h2 class="text-4xl font-bold text-gray-800 mt-2 mb-4">Por que escolher o Betel Saúde?</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tudo o que você precisa para acompanhar sua saúde com praticidade.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale animate-on-scroll">
-          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-shield-alt text-blue-600"></i></div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Segurança</h3>
-          <p class="text-gray-600">Seus dados são protegidos com criptografia de ponta a ponta.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale animate-on-scroll">
-          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-bolt text-blue-600"></i></div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Rapidez</h3>
-          <p class="text-gray-600">Acesse serviços de saúde de forma ágil, sem complicações.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale animate-on-scroll">
-          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-users text-blue-600"></i></div>
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Para todos</h3>
-          <p class="text-gray-600">Feito para pacientes, médicos e clínicas de todos os portes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="py-20">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16 animate-on-scroll">
-        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Depoimentos</span>
-        <h2 class="text-4xl font-bold text-gray-800 mt-2 mb-4">O que dizem nossos usuários</h2>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-lg animate-on-scroll">
-          <div class="flex items-center mb-4">
-            <img src="https://i.pravatar.cc/64?img=5" class="w-12 h-12 rounded-full mr-4" alt="Usuário" />
-            <div>
-              <p class="font-semibold">Ana Paula</p>
-              <p class="text-sm text-gray-500">São Paulo - SP</p>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden">
+            <div class="px-6 py-4 space-y-3 glass-effect">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium">Início</a>
+                <a href="#features" class="block text-gray-700 hover:text-blue-600 font-medium">Recursos</a>
+                <a href="#benefits" class="block text-gray-700 hover:text-blue-600 font-medium">Benefícios</a>
+                <a href="#testimonials" class="block text-gray-700 hover:text-blue-600 font-medium">Depoimentos</a>
+                <a href="#download" class="block text-gray-700 hover:text-blue-600 font-medium">Download</a>
             </div>
-          </div>
-          <p class="text-gray-600">O Betel Saúde facilitou minha vida. Agendo minhas consultas em minutos e faço acompanhamento com meu médico pelo app.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-lg animate-on-scroll">
-          <div class="flex items-center mb-4">
-            <img src="https://i.pravatar.cc/64?img=6" class="w-12 h-12 rounded-full mr-4" alt="Usuário" />
-            <div>
-              <p class="font-semibold">Rafael Lima</p>
-              <p class="text-sm text-gray-500">Belo Horizonte - MG</p>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <!-- Background da seção Hero -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/backgroundsenior.jpg" alt="" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute inset-0 z-0 bg-white/60 md:bg-white/40"></div>
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 z-0">
+            <!-- Adicione sua imagem de background aqui -->
+            <!-- Tamanho recomendado: 1920x1080px (Full HD) ou 2560x1440px (2K) -->
+            <!-- Formato: JPG ou WebP para melhor performance -->
+            <div 
+                class="w-full h-full bg-gradient-to-br from-blue-100 via-cyan-50 to-sky-100"
+                style="background-image: url('SUA_IMAGEM_AQUI.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             </div>
-          </div>
-          <p class="text-gray-600">Excelente para lembrar medicações e manter o histórico de consultas. Recomendo!</p>
+            <!-- Overlay gradient para melhorar legibilidade do texto -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent"></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center animate-on-scroll">
-        <div><p class="text-4xl font-bold text-gray-800">50k+</p><p class="text-gray-600">Usuários</p></div>
-        <div><p class="text-4xl font-bold text-gray-800">2k+</p><p class="text-gray-600">Médicos</p></div>
-        <div><p class="text-4xl font-bold text-gray-800">1M+</p><p class="text-gray-600">Consultas</p></div>
-        <div><p class="text-4xl font-bold text-gray-800">4.9/5</p><p class="text-gray-600">Avaliação</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download -->
-  <section id="download" class="py-20 bg-gradient-to-b from-blue-50 to-white">
-    <div class="container mx-auto px-6">
-      <div class="bg-white rounded-3xl p-10 md:p-14 shadow-xl relative overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full opacity-20"></div>
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          <div class="animate-on-scroll">
-            <h3 class="text-3xl font-bold text-gray-800 mb-4">Baixe o Betel Saúde agora</h3>
-            <p class="text-gray-600 mb-6">Disponível para iOS e Android. Experimente gratuitamente.</p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-xl hover:opacity-90"><i class="fab fa-apple mr-2"></i> App Store</a>
-              <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700"><i class="fab fa-google-play mr-2"></i> Google Play</a>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-md">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    <span class="text-sm text-blue-700 font-medium">Novo! Teleconsultas disponíveis</span>
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight">
+                    O futuro da saúde
+                    <img src="assets/images/betel-logo.png" alt="Betel Saúde" class="inline-block align-middle h-12 lg:h-16 w-auto" />
+                </h1>
+                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                    Conecte-se com os melhores profissionais de saúde, agende consultas, gerencie medicamentos e monitore sua saúde - tudo em um único aplicativo intuitivo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="#download" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-2xl hover-scale shadow-xl">
+                        <i class="fas fa-download mr-2"></i>
+                        Baixar Agora
+                    </a>
+                    <button onclick="playVideo()" class="inline-flex items-center justify-center px-8 py-4 bg-white/90 backdrop-blur-sm text-blue-600 font-semibold rounded-2xl border-2 border-blue-200 hover:bg-white shadow-lg">
+                        <i class="fas fa-play-circle mr-2"></i>
+                        Ver Demonstração
+                    </button>
+                </div>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                    <div class="flex -space-x-2">
+                        <img src="https://i.pravatar.cc/40?img=1" class="w-12 h-12 rounded-full border-3 border-white shadow-md" alt="User">
+                        <img src="https://i.pravatar.cc/40?img=2" class="w-12 h-12 rounded-full border-3 border-white shadow-md" alt="User">
+                        <img src="https://i.pravatar.cc/40?img=3" class="w-12 h-12 rounded-full border-3 border-white shadow-md" alt="User">
+                        <img src="https://i.pravatar.cc/40?img=4" class="w-12 h-12 rounded-full border-3 border-white shadow-md" alt="User">
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-xl px-4 py-2">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-sm text-gray-700 font-medium">+50.000 usuários satisfeitos</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="flex items-center justify-center gap-6">
-            <div class="flex items-center bg-white rounded-full px-4 py-2 shadow-md"><i class="fas fa-qrcode text-blue-600 mr-2"></i><span class="text-sm font-medium">Escaneie o QR Code</span></div>
-            <div class="w-32 h-32 bg-white rounded-xl p-2 shadow-lg"><div class="w-full h-full bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg opacity-20"></div></div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+        
+        <!-- Decorative elements -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-5"></div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-8 mb-10">
-        <div>
-          <div class="flex items-center space-x-3 mb-4">
-            <img src="assets/logo.png" alt="Betel Saúde" class="w-10 h-10 rounded-xl object-contain" />
-            <span class="text-2xl font-bold">Betel Saúde</span>
-          </div>
-          <p class="text-gray-400">Transformando o cuidado com a saúde através da tecnologia.</p>
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">RECURSOS</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mt-2 mb-4">Tudo que você precisa para cuidar da saúde</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Recursos desenvolvidos pensando em você e sua família</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Teleconsultas</h3>
+                    <p class="text-gray-600 mb-4">Consulte médicos especialistas sem sair de casa, com vídeo em alta qualidade.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
+                    <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-check text-cyan-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Agendamento Inteligente</h3>
+                    <p class="text-gray-600 mb-4">Agende consultas com poucos cliques e receba lembretes automáticos.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
+                    <div class="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-pills text-sky-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Gestão de Medicamentos</h3>
+                    <p class="text-gray-600 mb-4">Controle horários, doses e receba alertas para nunca esquecer seus remédios.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-medical text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Prontuário Digital</h3>
+                    <p class="text-gray-600 mb-4">Todos seus exames e histórico médico organizados em um só lugar.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Monitoramento de Saúde</h3>
+                    <p class="text-gray-600 mb-4">Acompanhe seus sinais vitais e receba insights sobre sua saúde.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
+                    <div class="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-teal-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Segurança Total</h3>
+                    <p class="text-gray-600 mb-4">Seus dados protegidos com criptografia de ponta a ponta.</p>
+                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div>
-          <h4 class="font-semibold mb-4">Produto</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#features" class="hover:text-white transition-colors">Recursos</a></li>
-            <li><a href="#benefits" class="hover:text-white transition-colors">Benefícios</a></li>
-            <li><a href="#testimonials" class="hover:text-white transition-colors">Depoimentos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Suporte</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#" class="hover:text-white transition-colors">Central de Ajuda</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Status</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Legal</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><a href="#" class="hover:text-white transition-colors">Privacidade</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Termos</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Licenças</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 pt-6 text-sm text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p>© 2025 Betel Saúde. Todos os direitos reservados.</p>
-        <div class="flex items-center gap-4">
-          <a href="#" aria-label="Twitter" class="hover:text-white"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      if (menu) menu.classList.toggle('hidden');
-    }
-    function playVideo() {
-      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-    }
-    function revealInView() {
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        elements.forEach((el) => observer.observe(el));
-      } else {
-        elements.forEach((el) => el.classList.add('visible'));
-      }
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      revealInView();
-      // Garante revelação dos elementos logo após o load inicial
-      setTimeout(revealInView, 100);
-    });
-  </script>
-</body>
-</html>
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">BENEFÍCIOS</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mt-2 mb-4">Por que escolher o MediCare+?</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-clock text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Economia de Tempo</h3>
+                            <p class="text-gray-600">Reduza em até 70% o tempo gasto com burocracias médicas e filas de espera.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-md text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Profissionais Verificados</h3>
+                            <p class="text-gray-600">Acesso a uma rede de mais de 10.000 profissionais credenciados e avaliados.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Acesso 24/7</h3>
+                            <p class="text-gray-600">Plantão médico disponível 24 horas para emergências e orientações.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-brain text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">IA Assistente</h3>
+                            <p class="text-gray-600">Inteligência artificial para triagem inicial e recomendações personalizadas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=400&fit=crop" alt="Doctor" class="rounded-2xl shadow-xl">
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-3xl font-bold text-blue-600">98%</div>
+                            <div>
+                                <p class="text-gray-600 text-sm">Satisfação</p>
+                                <p class="font-semibold text-gray-800">dos usuários</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">DEPOIMENTOS</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mt-2 mb-4">O que nossos usuários dizem</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Revolucionou a forma como cuido da minha saúde. Consigo agendar consultas em segundos e o lembrete de medicamentos é perfeito!"</p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/48?img=5" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Maria Silva</p>
+                            <p class="text-sm text-gray-500">Empresária</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"As teleconsultas salvaram meu tempo! Posso consultar especialistas sem sair do escritório. Interface limpa e intuitiva."</p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/48?img=8" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">João Santos</p>
+                            <p class="text-sm text-gray-500">Advogado</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Ter todo meu histórico médico em um só lugar é incrível. Os médicos têm acesso rápido às informações necessárias."</p>
+                    <div class="flex items-center">
+                        <img src="https://i.pravatar.cc/48?img=9" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Ana Costa</p>
+                            <p class="text-sm text-gray-500">Professora</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-500 to-cyan-500">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="50000">0</div>
+                    <p class="text-blue-100">Usuários Ativos</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="10000">0</div>
+                    <p class="text-blue-100">Profissionais</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="500000">0</div>
+                    <p class="text-blue-100">Consultas Realizadas</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-bold text-white mb-2">4.9</div>
+                    <p class="text-blue-100">Avaliação na Store</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-12 text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Baixe agora e comece a cuidar melhor da sua saúde</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Disponível gratuitamente para iOS e Android. Faça parte da revolução digital na saúde!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="#" class="inline-flex items-center justify-center bg-black text-white px-8 py-4 rounded-2xl hover-scale">
+                        <i class="fab fa-apple text-2xl mr-3"></i>
+                        <div class="text-left">
+                            <p class="text-xs">Baixar na</p>
+                            <p class="text-lg font-semibold">App Store</p>
+                        </div>
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center bg-black text-white px-8 py-4 rounded-2xl hover-scale">
+                        <i class="fab fa-google-play text-2xl mr-3"></i>
+                        <div class="text-left">
+                            <p class="text-xs">Disponível no</p>
+                            <p class="text-lg font-semibold">Google Play</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-heartbeat text-white"></i>
+                        </div>
+                        <span class="text-2xl font-bold">MediCare+</span>
+                    </div>
+                    <p class="text-gray-400">Transformando o cuidado com a saúde através da tecnologia.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Produto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Recursos</a></li>
+                        <li><a href="#" class="hover:text-white">Preços</a></li>
+                        <li><a href="#" class="hover:text-white">Para Médicos</a></li>
+                        <li><a href="#" class="hover:text-white">Para Clínicas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-white">Carreiras</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Privacidade</a></li>
+                        <li><a href="#" class="hover:text-white">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-white">LGPD</a></li>
+                        <li><a href="#" class="hover:text-white">Segurança</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
