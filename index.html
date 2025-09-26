@@ -109,11 +109,11 @@
     <section id="home" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
         <!-- Background da seção Hero -->
         <div class="absolute inset-0 z-0">
-            <img src="assets/images/backgroundsenior.jpg" alt="" class="w-full h-full object-cover" />
+            <img src="assets/images/backgroundsenior.jpg" alt="" class="w-full h-full object-cover saturate-150 contrast-125 brightness-110" />
         </div>
-        <div class="absolute inset-0 z-0 bg-white/60 md:bg-white/40"></div>
+        <div class="absolute inset-0 z-0 bg-black/40 md:bg-black/30"></div>
         <!-- Background Image Container -->
-        <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 z-0 hidden">
             <!-- Adicione sua imagem de background aqui -->
             <!-- Tamanho recomendado: 1920x1080px (Full HD) ou 2560x1440px (2K) -->
             <!-- Formato: JPG ou WebP para melhor performance -->
@@ -122,20 +122,20 @@
                 style="background-image: url('SUA_IMAGEM_AQUI.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             </div>
             <!-- Overlay gradient para melhorar legibilidade do texto -->
-            <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/50 via-white/20 to-transparent"></div>
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-2xl">
-                <div class="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-md">
+                <div class="inline-flex items-center bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-md ring-1 ring-white/20">
                     <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                    <span class="text-sm text-blue-700 font-medium">CARTÃO BETEL SAÚDE</span>
+                    <span class="text-sm text-white font-medium">CARTÃO BETEL SAÚDE</span>
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight">
+                <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                     O futuro da saúde
                     <span class="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">começa aqui, hoje!</span>
                 </h1>
-                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                <p class="text-xl text-slate-200 mb-8 leading-relaxed">
                     Conecte-se com os melhores profissionais de saúde, agende consultas, gerencie medicamentos e monitore sua saúde - tudo em um único aplicativo intuitivo.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-8">
@@ -143,7 +143,7 @@
                         <i class="fas fa-download mr-2"></i>
                         Baixar Agora
                     </a>
-                    <button onclick="playVideo()" class="inline-flex items-center justify-center px-8 py-4 bg-white/90 backdrop-blur-sm text-blue-600 font-semibold rounded-2xl border-2 border-blue-200 hover:bg-white shadow-lg">
+                    <button onclick="playVideo()" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-2xl border-2 border-white/30 hover:bg-white/20 shadow-lg">
                         <i class="fas fa-play-circle mr-2"></i>
                         Ver Demonstração
                     </button>
@@ -174,258 +174,395 @@
     </section>
 
     <!-- Features Section -->
--    <section id="features" class="py-20">
--        <div class="container mx-auto px-6">
--            <div class="text-center mb-16">
--                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">RECURSOS</span>
--                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mt-2 mb-4">Tudo que você precisa para cuidar da saúde</h2>
--                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Recursos desenvolvidos pensando em você e sua família</p>
--            </div>
--            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
--                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
--                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
--                        <i class="fas fa-video text-blue-600 text-xl"></i>
--                    </div>
--                    <h3 class="text-xl font-bold text-gray-800 mb-3">Teleconsultas</h3>
--                    <p class="text-gray-600 mb-4">Consulte médicos especialistas sem sair de casa, com vídeo em alta qualidade.</p>
--                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
--                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
--                    </a>
--                </div>
--                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
--                    <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mb-6">
--                        <i class="fas fa-calendar-check text-cyan-600 text-xl"></i>
--                    </div>
--                    <h3 class="text-xl font-bold text-gray-800 mb-3">Agendamento Inteligente</h3>
--                    <p class="text-gray-600 mb-4">Agende consultas com poucos cliques e receba lembretes automáticos.</p>
--                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
--                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
--                    </a>
--                </div>
--                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
--                    <div class="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center mb-6">
--                        <i class="fas fa-pills text-sky-600 text-xl"></i>
--                    </div>
--                    <h3 class="text-xl font-bold text-gray-800 mb-3">Gestão de Medicamentos</h3>
--                    <p class="text-gray-600 mb-4">Controle horários, doses e receba alertas para nunca esquecer seus remédios.</p>
--                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
--                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
--                    </a>
--                </div>
--                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
--                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
--                        <i class="fas fa-file-medical text-indigo-600 text-xl"></i>
--                    </div>
--                    <h3 class="text-xl font-bold text-gray-800 mb-3">Prontuário Digital</h3>
--                    <p class="text-gray-600 mb-4">Todos seus exames e histórico médico organizados em um só lugar.</p>
--                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
--                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
--                    </a>
--                </div>
--                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
--                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
--                        <i class="fas fa-chart-line text-purple-600 text-xl"></i>
--                    </div>
--                    <h3 class="text-xl font-bold text-gray-800 mb-3">Monitoramento de Saúde</h3>
--                    <p class="text-gray-600 mb-4">Acompanhe seus sinais vitais e receba insights sobre sua saúde.</p>
--                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
--                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
--                    </a>
--                </div>
--                <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale">
--                    <div class="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
--                        <i class="fas fa-shield-alt text-teal-600 text-xl"></i>
--                    </div>
--                    <h3 class="text-xl font-bold text-gray-800 mb-3">Segurança Total</h3>
--                    <p class="text-gray-600 mb-4">Seus dados protegidos com criptografia de ponta a ponta.</p>
--                    <a href="#" class="text-blue-600 font-medium flex items-center hover:text-blue-700">
--                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
--                    </a>
--                </div>
--            </div>
--        </div>
--    </section>
-+    <section id="features" class="relative py-20 bg-slate-900 overflow-hidden">
-+        <!-- Background image + overlay -->
-+        <div class="absolute inset-0">
-+            <img src="assets/images/bg.png" alt="" class="w-full h-full object-cover opacity-20">
-+            <div class="absolute inset-0 bg-slate-900/80"></div>
-+        </div>
-+        <div class="container mx-auto px-6 relative z-10">
-+            <!-- Title as in provided design -->
-+            <div class="text-center mb-12">
-+                <div class="inline-flex items-center px-6 py-3 rounded-2xl border border-cyan-400/50 bg-white/5 backdrop-blur-sm shadow-[0_0_0_4px_rgba(34,211,238,0.08)] text-white font-extrabold text-2xl md:text-3xl uppercase tracking-wide">
-+                    Diferenciais que fazem a diferença!
-+                </div>
-+            </div>
-+
-+            <div class="grid md:grid-cols-2 gap-12 items-start text-white">
-+                <!-- Left: bullet list -->
-+                <ul class="space-y-6">
-+                    <li class="flex items-start">
-+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center mr-4">
-+                            <i class="fas fa-user-check text-cyan-400"></i>
-+                        </div>
-+                        <p class="leading-relaxed">Sem limite de idade</p>
-+                    </li>
-+                    <li class="flex items-start">
-+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center mr-4">
-+                            <i class="fas fa-id-card text-cyan-400"></i>
-+                        </div>
-+                        <p class="leading-relaxed">Cartão virtual e físico</p>
-+                    </li>
-+                    <li class="flex items-start">
-+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center mr-4">
-+                            <i class="fas fa-tags text-cyan-400"></i>
-+                        </div>
-+                        <p class="leading-relaxed">Descontos progressivos em diversos pacotes adicionais, tais como: Pré-Natal, Parto, PA Pediátrico, exames adicionais, etc...</p>
-+                    </li>
-+                    <li class="flex items-start">
-+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center mr-4">
-+                            <i class="fas fa-heartbeat text-cyan-400"></i>
-+                        </div>
-+                        <p class="leading-relaxed">Programas de prevenção e bem-estar</p>
-+                    </li>
-+                </ul>
-+
-+                <!-- Right: highlighted card -->
-+                <div class="bg-white/5 border border-cyan-400/30 rounded-2xl p-8 backdrop-blur-sm">
-+                    <div class="flex items-center space-x-3">
-+                        <div class="w-12 h-12 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center">
-+                            <i class="fas fa-shield-alt text-cyan-400 text-xl"></i>
-+                        </div>
-+                        <h3 class="text-2xl font-bold">Medicina Preditiva</h3>
-+                    </div>
-+                    <p class="mt-4 text-cyan-50/90">Antecipe riscos e personalize cuidados com base em dados e análises.</p>
-+                </div>
-+            </div>
-+        </div>
-+    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+    <section id="features" class="relative py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">BENEFÍCIOS</span>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mt-2 mb-4">Por que escolher o MediCare+?</h2>
+                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">RECURSOS</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-[#1B1C5E] mt-3 mb-4">Diferenciais que fazem a diferença!</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Recursos desenvolvidos pensando em você e sua família</p>
             </div>
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-clock text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Economia de Tempo</h3>
-                            <p class="text-gray-600">Reduza em até 70% o tempo gasto com burocracias médicas e filas de espera.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user-md text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Profissionais Verificados</h3>
-                            <p class="text-gray-600">Acesso a uma rede de mais de 10.000 profissionais credenciados e avaliados.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Sem limite de idade -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 rounded-full bg-blue-300/30 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg ring-1 ring-blue-100 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 ring-1 ring-white flex items-center justify-center">
+                                <i class="fas fa-infinity text-blue-600 text-xl"></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-mobile-alt text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Acesso 24/7</h3>
-                            <p class="text-gray-600">Plantão médico disponível 24 horas para emergências e orientações.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-brain text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">IA Assistente</h3>
-                            <p class="text-gray-600">Inteligência artificial para triagem inicial e recomendações personalizadas.</p>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sem limite de idade</h3>
+                    <p class="text-gray-600">Benefício disponível para todas as faixas etárias.</p>
                 </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=400&fit=crop" alt="Doctor" class="rounded-2xl shadow-xl">
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-lg">
-                        <div class="flex items-center space-x-4">
-                            <div class="text-3xl font-bold text-blue-600">98%</div>
+
+                <!-- Cartão virtual e físico -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 rounded-full bg-cyan-300/30 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg ring-1 ring-cyan-100 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-cyan-100 to-cyan-200 ring-1 ring-white flex items-center justify-center">
+                                <i class="fas fa-id-card text-cyan-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cartão virtual e físico</h3>
+                    <p class="text-gray-600">Acesso prático pelo app e cartão físico quando necessário.</p>
+                </div>
+
+                <!-- Descontos progressivos -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 rounded-full bg-purple-300/30 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg ring-1 ring-purple-100 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 ring-1 ring-white flex items-center justify-center">
+                                <i class="fas fa-tags text-purple-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Descontos progressivos</h3>
+                    <p class="text-gray-600">Pré-Natal, Parto, PA Pediátrico, exames adicionais, etc.</p>
+                </div>
+
+                <!-- Programas de prevenção e bem-estar -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 rounded-full bg-rose-300/30 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg ring-1 ring-rose-100 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-rose-100 to-rose-200 ring-1 ring-white flex items-center justify-center">
+                                <i class="fas fa-heartbeat text-rose-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Programas de prevenção e bem‑estar</h3>
+                    <p class="text-gray-600">Acompanhamento contínuo para hábitos mais saudáveis.</p>
+                </div>
+
+                <!-- Medicina Preditiva -->
+                <div class="flex flex-col items-center text-center md:col-span-2 lg:col-span-1">
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 rounded-full bg-teal-300/30 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg ring-1 ring-teal-100 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-teal-100 to-teal-200 ring-1 ring-white flex items-center justify-center">
+                                <i class="fas fa-chart-line text-teal-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Medicina Preditiva</h3>
+                    <p class="text-gray-600">Uso de dados para antecipar riscos e personalizar cuidados.</p>
+                </div>
+
+                <!-- Suporte 24h -->
+                <div class="flex flex-col items-center text-center md:col-span-2 lg:col-span-1">
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 rounded-full bg-green-300/30 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-lg ring-1 ring-green-100 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-100 to-green-200 ring-1 ring-white flex items-center justify-center">
+                                <i class="fas fa-clock text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Suporte 24h</h3>
+                    <p class="text-gray-600">Atendimento e orientação a qualquer hora.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Betel Card Section -->
+    <section id="betel-card" class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/cartaobetel.jpg" alt="Fundo Cartão Betel" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-white/40 md:bg-white/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Texto -->
+                <div>
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Cartão Betel Saúde</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold uppercase text-[#1B1C5E] mt-2 mb-4">Tecnologia a serviço da sua saúde</h2>
+                    <p class="text-lg text-gray-700 mb-8">Usamos tecnologia, inteligência artificial e análise de dados para antecipar riscos e promover uma saúde verdadeiramente preventiva e personalizada.</p>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-brain text-blue-600"></i>
+                            </div>
                             <div>
-                                <p class="text-gray-600 text-sm">Satisfação</p>
-                                <p class="font-semibold text-gray-800">dos usuários</p>
+                                <p class="font-semibold text-gray-800">Inteligência Artificial</p>
+                                <p class="text-gray-600 text-sm">Insights contínuos para decisões mais seguras.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-cyan-100 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-cyan-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Análise de Dados</p>
+                                <p class="text-gray-600 text-sm">Monitoramento e predição de riscos de saúde.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-emerald-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Cuidado Preventivo</p>
+                                <p class="text-gray-600 text-sm">Planos personalizados para cada perfil.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center">
+                                <i class="fas fa-id-card text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Cartão Digital e Físico</p>
+                                <p class="text-gray-600 text-sm">Acesso fácil no app e versão para carteira.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+      </section>
+      
+    <!-- Mission Vision Values Section -->
+     <section id="mvv" class="relative py-20 bg-gradient-to-br from-[#0B1026] via-[#12193A] to-[#0B1026] overflow-hidden">
+         <!-- Decorative glows -->
+         <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full"></div>
+         <div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/20 blur-3xl rounded-full"></div>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">DEPOIMENTOS</span>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mt-2 mb-4">O que nossos usuários dizem</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="flex mb-4">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
+         <div class="container mx-auto px-6 relative">
+             <div class="text-center mb-16">
+                 <span class="inline-block text-cyan-300/90 font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-full ring-1 ring-cyan-400/30 bg-white/5">Institucional</span>
+                 <h2 class="text-3xl lg:text-4xl font-extrabold uppercase text-white mt-3 mb-4 tracking-tight">Missão, Visão e Valores</h2>
+                 <p class="text-lg text-slate-300/90 max-w-3xl mx-auto">Os pilares que nos guiam e impulsionam o cuidado inteligente do Betel Saúde</p>
+             </div>
+
+             <div class="grid md:grid-cols-3 gap-10">
+                 <!-- Missão (círculo + textos fora) -->
+                 <div class="flex flex-col items-center text-center">
+                     <div class="relative mb-6">
+                         <div class="absolute -inset-4 rounded-full bg-cyan-500/20 blur-2xl"></div>
+                         <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                             <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                 <i class="fas fa-bullseye text-cyan-200 text-2xl"></i>
+                             </div>
+                         </div>
+                     </div>
+                     <h3 class="text-xl font-semibold text-white mb-2">Missão</h3>
+                     <p class="text-slate-300">Tornar a saúde acessível a todos, com qualidade e humanidade.</p>
+                 </div>
+
+                 <!-- Visão (círculo + textos fora) -->
+                 <div class="flex flex-col items-center text-center">
+                     <div class="relative mb-6">
+                         <div class="absolute -inset-4 rounded-full bg-blue-500/20 blur-2xl"></div>
+                         <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                             <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                 <i class="fas fa-eye text-cyan-200 text-2xl"></i>
+                             </div>
+                         </div>
+                     </div>
+                     <h3 class="text-xl font-semibold text-white mb-2">Visão</h3>
+                     <p class="text-slate-300">Ser referência nacional em benefícios de saúde, reconhecida pela inovação, confiança e impacto social.</p>
+                 </div>
+
+                 <!-- Valores (círculo + textos fora) -->
+                 <div class="flex flex-col items-center text-center">
+                     <div class="relative mb-6">
+                         <div class="absolute -inset-4 rounded-full bg-emerald-500/20 blur-2xl"></div>
+                         <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                             <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-emerald-400/30 to-teal-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                 <i class="fas fa-hand-holding-heart text-emerald-200 text-2xl"></i>
+                             </div>
+                         </div>
+                     </div>
+                     <h3 class="text-xl font-semibold text-white mb-3">Valores</h3>
+                      <p class="text-slate-300">Ética, respeito, inovação, qualidade, acolhimento e compromisso social.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+       <section id="alvo" class="relative py-20 overflow-hidden" style="background-image: url('assets/images/alvo.jpg'); background-size: cover; background-position: center;">
+        <!-- Light overlay to ensure legibility -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/85 via-blue-50/80 to-cyan-50/75"></div>
+        <!-- Decorative soft glows -->
+        <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-cyan-200/40 blur-3xl rounded-full"></div>
+        <div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-blue-200/40 blur-3xl rounded-full"></div>
+
+        <div class="container mx-auto px-6 relative">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Title + Topics -->
+                <div>
+                    <div class="mb-8">
+                        <span class="inline-block text-cyan-700 font-semibold text-xs uppercase tracking-wider px-3 py-1 rounded-full ring-1 ring-cyan-600/20 bg-white">Institucional</span>
+                        <h2 class="text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-[#1B1C5E] mt-3">NOSSO ALVO</h2>
+                        <p class="text-lg text-gray-700 mt-3">Onde focamos nossos esforços para entregar saúde acessível, humana e eficiente.</p>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">"Revolucionou a forma como cuido da minha saúde. Consigo agendar consultas em segundos e o lembrete de medicamentos é perfeito!"</p>
-                    <div class="flex items-center">
-                        <img src="https://i.pravatar.cc/48?img=5" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <p class="font-semibold text-gray-800">Maria Silva</p>
-                            <p class="text-sm text-gray-500">Empresária</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Atendimento humanizado e acessível</p>
                         </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="flex mb-4">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">"As teleconsultas salvaram meu tempo! Posso consultar especialistas sem sair do escritório. Interface limpa e intuitiva."</p>
-                    <div class="flex items-center">
-                        <img src="https://i.pravatar.cc/48?img=8" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <p class="font-semibold text-gray-800">João Santos</p>
-                            <p class="text-sm text-gray-500">Advogado</p>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Custos acessíveis sem burocracia</p>
                         </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="flex mb-4">
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                        <i class="fas fa-star text-yellow-400"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">"Ter todo meu histórico médico em um só lugar é incrível. Os médicos têm acesso rápido às informações necessárias."</p>
-                    <div class="flex items-center">
-                        <img src="https://i.pravatar.cc/48?img=9" alt="User" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <p class="font-semibold text-gray-800">Ana Costa</p>
-                            <p class="text-sm text-gray-500">Professora</p>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Descontos para inclusão de dependentes</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Equipe Multidisciplinar</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Sem carência extensiva</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Aplicativo para agendamentos</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <p class="text-gray-800">Planos para empresas e famílias</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+ 
+     <!-- Differentials Section -->
+    <section id="diferenciais" class="relative py-20 overflow-hidden" style="background-image: url('assets/images/diferenciais.jpg'); background-size: cover; background-position: center;">
+         <!-- Blue mask overlay to darken -->
+         <div class="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-[#0B1026]/95 to-blue-900/95 mix-blend-multiply"></div>
+          <div class="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
+         <!-- Decorative glows -->
+         <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full"></div>
+         <div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/20 blur-3xl rounded-full"></div>
+ 
+         <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl lg:text-4xl font-extrabold uppercase text-white mt-3 mb-4 tracking-tight">NOSSOS DIFERENCIAIS</h2>
+                <p class="text-lg text-slate-300/90 max-w-3xl mx-auto">Conheça os pontos que nos tornam únicos.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                <!-- Atendimento humanizado e acessível -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-cyan-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-cyan-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Atendimento humanizado e acessível</p>
+                </div>
+
+                <!-- Custos acessíveis sem burocracia -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-emerald-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-emerald-400/30 to-teal-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-emerald-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Custos acessíveis sem burocracia</p>
+                </div>
+
+                <!-- Descontos para inclusão de dependentes -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-indigo-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-indigo-400/30 to-violet-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-indigo-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Descontos para inclusão de dependentes</p>
+                </div>
+
+                <!-- Equipe Multidisciplinar -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-pink-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-pink-400/30 to-rose-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-pink-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Equipe Multidisciplinar</p>
+                </div>
+
+                <!-- Sem carência extensiva -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-amber-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-amber-400/30 to-orange-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-amber-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Sem carência extensiva</p>
+                </div>
+
+                <!-- Aplicativo para agendamentos -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-sky-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-sky-400/30 to-cyan-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-sky-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Aplicativo para agendamentos</p>
+                </div>
+
+                <!-- Planos para empresas e famílias -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="absolute -inset-4 rounded-full bg-teal-500/20 blur-2xl"></div>
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 backdrop-blur-xl ring-1 ring-white/15 flex items-center justify-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-teal-400/30 to-emerald-500/30 ring-1 ring-white/20 flex items-center justify-center">
+                                <i class="fas fa-check text-teal-200 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-lg">Planos para empresas e famílias</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosso Alvo Section (light theme) -->
+  
 
     <!-- Stats Section -->
     <section class="py-20 bg-gradient-to-r from-blue-500 to-cyan-500">
@@ -446,6 +583,67 @@
                 <div>
                     <div class="text-5xl font-bold text-white mb-2">4.9</div>
                     <p class="text-blue-100">Avaliação na Store</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos Section -->
+    <section id="produtos" class="relative py-20 bg-gradient-to-br from-white via-blue-50 to-cyan-50 overflow-hidden">
+        <!-- Decorative soft glows -->
+        <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-cyan-200/40 blur-3xl rounded-full"></div>
+        <div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-blue-200/40 blur-3xl rounded-full"></div>
+
+        <div class="container mx-auto px-6 relative">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-[#1B1C5E] mt-3">PRODUTOS</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">Escolha o plano ideal para você. Todos incluem suporte humanizado e acesso facilitado à saúde.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Produto 1: Essencial -->
+                <div class="bg-white/90 rounded-2xl ring-1 ring-blue-100 shadow-lg p-8 flex flex-col">
+                    <h3 class="text-xl font-bold text-[#1B1C5E]">Plano Essencial</h3>
+                    <p class="text-gray-600 mt-1">Para quem busca o básico com economia.</p>
+                    <ul class="mt-6 space-y-3 text-gray-800">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Consultas com desconto na rede credenciada</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Teleorientação e suporte via app</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Exames básicos com valores reduzidos</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Sem carência extensiva</span></li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-blue-100">
+                        <div class="text-3xl font-extrabold text-[#1B1C5E]">R$ 49<span class="text-base font-semibold text-gray-600">/mês</span></div>
+                    </div>
+                </div>
+
+                <!-- Produto 2: Plus -->
+                <div class="bg-white/90 rounded-2xl ring-1 ring-blue-100 shadow-lg p-8 flex flex-col">
+                    <h3 class="text-xl font-bold text-[#1B1C5E]">Plano Plus</h3>
+                    <p class="text-gray-600 mt-1">Mais benefícios e maior cobertura.</p>
+                    <ul class="mt-6 space-y-3 text-gray-800">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Consultas com especialistas com desconto</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Telemedicina 24h</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Exames laboratoriais e de imagem com valores reduzidos</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Descontos para inclusão de dependentes</span></li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-blue-100">
+                        <div class="text-3xl font-extrabold text-[#1B1C5E]">R$ 79<span class="text-base font-semibold text-gray-600">/mês</span></div>
+                    </div>
+                </div>
+
+                <!-- Produto 3: Premium -->
+                <div class="bg-white/90 rounded-2xl ring-1 ring-blue-100 shadow-lg p-8 flex flex-col">
+                    <h3 class="text-xl font-bold text-[#1B1C5E]">Plano Premium</h3>
+                    <p class="text-gray-600 mt-1">Experiência completa com máxima vantagem.</p>
+                    <ul class="mt-6 space-y-3 text-gray-800">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Atendimento humanizado e prioridade na rede</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Telemedicina e acompanhamento contínuo</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Exames avançados com valores reduzidos</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-0.5"></i><span>Planos para empresas e famílias</span></li>
+                    </ul>
+                    <div class="mt-auto pt-6 border-t border-blue-100">
+                        <div class="text-3xl font-extrabold text-[#1B1C5E]">R$ 119<span class="text-base font-semibold text-gray-600">/mês</span></div>
+                    </div>
                 </div>
             </div>
         </div>
